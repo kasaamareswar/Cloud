@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Editor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="editor-container">
+        <!-- Top Menu -->
+        <div class="menu-bar">
+            <div class="menu-left">
+                <button class="menu-button" onclick="fileMenu()">File</button>
+                <button class="menu-button" onclick="homeMenu()">Home</button>
+                <button class="menu-button" onclick="insertMenu()">Insert</button>
+                <button class="menu-button" onclick="layoutMenu()">Layout</button>
+                <button class="menu-button" onclick="openVersionHistory()">Version History</button>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar">
+            <select id="font-select" class="font-select">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Courier New">Courier New</option>
+            </select>
+            <input type="number" id="font-size" class="font-size" value="12" min="8" max="72">
+            <button class="toolbar-button" onclick="formatText('bold')"><b>B</b></button>
+            <button class="toolbar-button" onclick="formatText('italic')"><i>I</i></button>
+            <button class="toolbar-button" onclick="formatText('underline')"><u>U</u></button>
+            <button class="toolbar-button" onclick="alignText('left')">Left</button>
+            <button class="toolbar-button" onclick="alignText('center')">Center</button>
+            <button class="toolbar-button" onclick="alignText('right')">Right</button>
+            <button class="toolbar-button" onclick="insertList('unordered')">•</button>
+            <button class="toolbar-button" onclick="insertList('ordered')">1.</button>
+        </div>
+
+        <!-- Document Area -->
+        <div id="document-area" class="document-area" contenteditable="true">
+            <p>Start writing here...</p>
+        </div>
+    </div>
+    <!-- Version History Modal -->
+<!-- Version History Modal -->
+<div id="version-history-modal" class="modal hidden">
+    <div class="modal-content">
+        <button class="close-button" onclick="closeVersionHistory()">X</button>
+        <h2>Version History</h2>
+        <ul id="version-history-list" class="version-list"></ul>
+        <button id="scroll-top-button" class="scroll-button" onclick="scrollToTop()">Scroll to Top</button>
+    </div>
+</div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
